@@ -25,31 +25,31 @@ const rock = () => {
     rockC = true;
     paperC = false;
     knifeC = false;
+    console.log("rock")
 }
 
 const paper = () => {
     rockC = false;
     paperC = true;
     knifeC = false;
+    console.log("paper")
 }
 
 const knife = () => {
     rockC = false;
     paperC = false;
     knifeC = true;
+    console.log("knife")
 }
 
    
 function getComputerChoice () {
     const random = Math.random() * 100
 if (random <= 33.3) {
-
     return "rock"
 } else if (33.3 < random && random <= 66.6){
-
     return "scissors"
 } else if (random > 66.6) {
-
     return "paper"
 }
 };
@@ -70,11 +70,12 @@ const gameplay = (compick, humapick) => {
 }
 
 const getPlayerChoice = () => {
-    if(rockC ) {
+
+    if(rockC && !paperC && !knifeC) {
         return "rock";
-    } else if (paperC) {
+    } else if (paperC && !rockC && !knifeC) {
         return "paper";
-    } else if (knifeC) {
+    } else if (knifeC  && !rockC && !paperC) {
         return "scissors";
     } else {
         alert ("pick one!");
@@ -83,12 +84,12 @@ const getPlayerChoice = () => {
 
 const gameStart = () => {
 const comppick =  getComputerChoice();
-if(comppick == "paper") {
-botchoiceimg.src = "./images/rock.png"
-} else if (comppick == "rock") {
-botchoiceimg.src = "./images/paper.png"
-} else if (comppick == "scissors") {
-botchoiceimg.src = "./images/knife.png"
+if(comppick === "paper") {
+botchoiceimg.src = "./images/paper.png";
+} else if (comppick === "rock") {
+botchoiceimg.src = "./images/rock.png";
+} else if (comppick === "scissors") {
+botchoiceimg.src = "./images/knife.png";
 }
 
 const playerPick = getPlayerChoice();
@@ -128,7 +129,6 @@ if (rounds === 0){
     alert("GAME FIN!")
 } 
 
-
 if (botface == 0) {
     botimg.src = "./images/bot.png";
     playimg.src = "./images/play.png";
@@ -139,6 +139,9 @@ if (botface == 0) {
     botimg.src = "./images/botlose.png"
     playimg.src = "./images/playwin.png";
     }
+
+    console.log(playerPick)
+    console.log(comppick);
 };
 
 const restartGame = () => {
@@ -151,10 +154,11 @@ const restartGame = () => {
  comment.innerText = "LET'S GOOO!";
  startBut.style.display = "block";
  restartBut.style.display = "none";
+ botimg.src = "./images/bot.png"
  botface = 0;
- botchoiceimg.style.display = "none";
  playimg.src = "./images/play.png";
 }
+
 
 
 rockbut.addEventListener("click", () => {rock()});
