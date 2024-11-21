@@ -7,13 +7,15 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
-        <h1>ROCK PAPER SCISSORS</h1>
+        <div class="header">
+            <h1>ROCK PAPER KNIFE</h1>
+        </div>
+        <div class="choices">
         <p>Your Choice:</p>
-        <select id="gameinput">
-            <option value="rock">rock</option>
-            <option value="paper">paper</option>
-            <option value="scissors">scissors</option>
-        </select>
+            <button class="choice" id="rock"><img width="100" height="100" src="./images/rock.png"></button>
+            <button class="choice" id="knife" ><img width="100"  height="100" src="./images/knife.png"></button>
+            <button class="choice" id="paper" ><img width="100"  height="100" src="./images/paper.png"></button>
+        </div>
         <button id="gameStart">SHOOT!</button>
         <button id="restartGame" style="display:none">ANTOHER?</button>
         <p id = "comment"></p>

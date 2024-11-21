@@ -1,0 +1,10 @@
+.choice{
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.choice:focus{
+    background-color:black;
+}

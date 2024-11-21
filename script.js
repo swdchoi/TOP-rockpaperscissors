@@ -3,14 +3,36 @@ const startBut = document.getElementById("gameStart");
 const restartBut = document.getElementById("restartGame");
 const playerScore = document.getElementById("playerCount");
 const botScore = document.getElementById("botCount");
-const playerInput = document.getElementById("gameinput");
+const rockbut = document.getElementById("rock");
+const knifebut = document.getElementById("knife");
+const paperbut = document.getElementById("paper");
 const compChoice = document.getElementById("compchoice");
 const comment = document.getElementById("comment");
 const round = document.getElementById("rounds");
 let playerS = 0;
 let compS = 0;
 let rounds = 5;
+let rockC = false;
+let paperC = false;
+let knifeC = false;
 
+const rock = () => {
+    rockC = true;
+    paperC = false;
+    knifeC = false;
+}
+
+const paper = () => {
+    rockC = false;
+    paperC = true;
+    knifeC = false;
+}
+
+const knife = () => {
+    rockC = false;
+    paperC = false;
+    knifeC = true;
+}
 
 function getComputerChoice () {
     const random = Math.random() * 100
@@ -38,9 +60,23 @@ const gameplay = (compick, humapick) => {
     }
 }
 
+const getPlayerChoice = () => {
+    if(rockC ) {
+        return "rock";
+    } else if (paperC) {
+        return "paper";
+    } else if (knifeC) {
+        return "scissors";
+    } else {
+        alert ("pick one!");
+    }
+    }
+
+
 const gameStart = () => {
 const comppick =  getComputerChoice();
-const winner = gameplay(comppick, playerInput.value);
+const playerPick = getPlayerChoice();
+const winner = gameplay(comppick, playerPick);
 compChoice.innerText = comppick;
 
 if(winner == "comp") {
@@ -79,10 +115,14 @@ const restartGame = () => {
  playerScore.innerText = playerS;
  botScore.innerText = compS;
  round.innerText = rounds;
- comment.innerText = "LET'S GOOO!"
+ comment.innerText = "LET'S GOOO!";
  startBut.style.display = "block";
  restartBut.style.display = "none";
 }
 
+
+rockbut.addEventListener("click", () => {rock()});
+paperbut.addEventListener("click", () => {paper()});
+knifebut.addEventListener("click", () => {knife()});
 startBut.addEventListener("click", () => {gameStart()});
 restartBut.addEventListener("click", () => {restartGame()});
