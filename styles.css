@@ -1,10 +1,87 @@
-.choice{
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header{
+text-align: center;
+background-color: black;
+color: white;
+padding: 20px;
+margin-bottom: 10px;
+}
+
+#botpic{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border: solid;
+padding: 30px;
+gap: 30px;
+
+}
+
+#canv {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.choices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    padding: 50px;
+    gap: 20px;
+}
+
+.char {
+    display: flex;
+}
+
+.choice {
     background-color: transparent;
     border: none;
     border-radius: 10px;
     padding: 10px;
+
 }
 
 .choice:focus{
     background-color:black;
+}
+
+.gamego {
+    background-color: transparent;
+    border: none;
+    margin-top: 30px;
+    padding: 20px;
+    border: solid;
+    border-radius: 20px;
+}
+
+.gamego:hover {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+#stats {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    padding: 80px;
+}
+
+.footer {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
 }
